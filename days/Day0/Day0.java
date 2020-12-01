@@ -5,6 +5,8 @@ public class Day0 extends Day {
 
     public void part1() {
         String input = this.getInput();
+        //System.out.println(input);
+        //for (byte c : input.getBytes()) System.out.println(c); //found CRLF line endings -> changed to LF
         int sumOfSquares = 0;
         for (String line : input.split("\n")) {
             int num = Integer.parseInt(line);

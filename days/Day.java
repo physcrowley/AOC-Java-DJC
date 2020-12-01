@@ -5,8 +5,10 @@ import java.time.Duration;
 
 
 public abstract class Day {
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_RESET = "\u001B[0m";
+    //public static final String ANSI_GREEN = "\u001B[32m";
+    //public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\033[32m";
+    public static final String ANSI_RESET = "\033[0m";
     public String inputFile;
     public String getInput() {
         try {
