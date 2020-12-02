@@ -1,24 +1,21 @@
-public class Day2 
-{
-    public class Day2 extends Day {
-        Day2() {
-            inputFile = "days/Day2/input2.txt";
-        }
-    
-        /**
-         * 
-         */
-        public void part1() {
+public class Day2 extends Day {
+    Day2() {
+        inputFile = "days/Day2/input2.txt";
+    }
 
-            System.out.printf("\n");
-        }
-    
-        /**
-         * 
-         */
-        public void part2() {
+    /**
+     * 
+     */
+    public void part1() {
 
-            System.out.printf("\n");
-        }
+        System.out.printf("\n");
+    }
+
+    /**
+     * 
+     */
+    public void part2() {
+
+        System.out.printf("\n");
     }
 }
