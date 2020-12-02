@@ -60,7 +60,7 @@ public class Day1 extends Day {
                         break;
                     }
                 }
-                if (num3 != 0) break;
+                if (num3 != 0) break; // better to use while loops?
             }
             if (num3 != 0) break;
         }
