@@ -27,7 +27,7 @@ public abstract class Day {
     public abstract void part1();
     public abstract void part2();
     public void run() {
-        System.out.println(String.format("%sRunning %s%s", ANSI_GREEN, this.getClass().getName(), ANSI_RESET));
+        System.out.println(String.format("Running %s", this.getClass().getName()));
 
         Instant start1 = Instant.now();
         this.part1();
@@ -40,6 +40,6 @@ public abstract class Day {
         Instant end2 = Instant.now();
         long runtimePart2 = Duration.between(start2, end2).toMillis();
         System.out.println(String.format("Part 2 took %d ms", runtimePart2));
-        System.out.println(String.format("\n%s", ANSI_RESET));
+        System.out.println(String.format("\n"));
     }
 }
