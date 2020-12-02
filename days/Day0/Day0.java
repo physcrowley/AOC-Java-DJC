@@ -22,7 +22,7 @@ public class Day0 extends Day {
         }
         */
         
-        // /* // with cache for part 2
+        ///* // with cache for part 2
         int i = 0;
         for (String line : input.split("\n")) {
             int num = Integer.parseInt(line);
@@ -31,8 +31,7 @@ public class Day0 extends Day {
             i++;
         }
         //System.out.println(sumOfSquaresList);
-        // */
-
+        //*/
 
         System.out.println(String.format("Sum of squares: %d", sumOfSquares));
     }
@@ -50,15 +49,17 @@ public class Day0 extends Day {
         }
         */
 
-        // /* // with cache from part1
+        ///*// with cache from part1
         int i = 0;
         for (String line : input.split("\n")) {
             int num = Integer.parseInt(line);
             sumOfCubes += this.sumOfSquaresList.get(i) * num;
             i++;
         }
-        // */
+        //*/
 
         System.out.println(String.format("Sum of cubes: %d", sumOfCubes));
+
+        // doesn't appear to be much, if any, gain from the caching -> offset by memory retrieval time?
     }
 }
