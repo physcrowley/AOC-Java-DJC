@@ -3,6 +3,9 @@ public class Day0 extends Day {
         inputFile = "days/Day0/input0.txt";
     }
 
+    /**
+     * 
+     */
     public void part1() {
         String input = this.getInput();
         //System.out.println(input);
@@ -15,6 +18,9 @@ public class Day0 extends Day {
         System.out.println(String.format("Sum of squares: %d", sumOfSquares));
     }
 
+    /**
+     * 
+     */
     public void part2() {
         String input = this.getInput();
         int sumOfCubes = 0;
