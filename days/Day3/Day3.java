@@ -1,6 +1,6 @@
 public class Day3 extends Day {
     Day3() {
-        inputFile = "days/Day2/input2.txt";
+        inputFile = "days/Day3/input3.txt";
     }
 
     /**
