@@ -11,10 +11,10 @@ public class Day2 extends Day {
     {
         try 
         {
-            File f = new File("days/Day2/input2.txt"); // using this.inputFile wasn't working
+            File f = new File(this.inputFile); // using this.inputFile wasn't working
             if (!f.exists()) 
             {
-                System.out.println(String.format("%s not found", "days/Day2/input2.txt"));
+                System.out.println(String.format("%s not found", this.inputFile));
                 return null;
             }
             return new Scanner(f);
