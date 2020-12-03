@@ -6,8 +6,8 @@ class Main {
     //(new Day0()).run();
     //(new Day1()).run();
     //(new Day2()).run();
-    (new Day3()).run();
-    // .
+    //(new Day3()).run();
+    (new Day4()).run();
     // .
     // .
   }
