@@ -5,7 +5,7 @@ class Main {
     System.out.println("AOC 2020\n");
     //(new Day0()).run();
     //(new Day1()).run();
-    (new Day2()).run();
+    //(new Day2()).run();
     (new Day3()).run();
     // .
     // .
