@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,7 +11,8 @@ public class Day1 extends Day {
      * find two numbers that sum to 2020 and calculate their product
      */
     public void part1() {
-        List<Integer> nums = new LinkedList<Integer>();
+        List<Integer> nums = new ArrayList<Integer>();
+        //List<Integer> nums = new LinkedList<Integer>();
 
         String input = this.getInput();
         for (String line : input.split("\n")) {
@@ -38,7 +40,8 @@ public class Day1 extends Day {
      * find three numbers that sum to 2020 and calculate their product
      */
     public void part2() {
-        List<Integer> nums = new LinkedList<Integer>();
+        List<Integer> nums = new ArrayList<Integer>();
+        //List<Integer> nums = new LinkedList<Integer>();
 
         String input = this.getInput();
         for (String line : input.split("\n")) {
