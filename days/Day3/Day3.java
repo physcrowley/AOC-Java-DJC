@@ -69,7 +69,7 @@ public class Day3 extends Day {
         {
             for (int i = 0; i < 5; i++)
             {
-                // go down
+                // go down <- moved above check to avoid ArrayIndexOutOfBounds error
                 y[i] += dy[i];
                 
                 // do nothing if at bottom of hill
