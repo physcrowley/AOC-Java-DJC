@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.SortedSet;
 
 public class Day5 extends Day {
     String[] lines;
@@ -17,13 +16,13 @@ public class Day5 extends Day {
     {
         if (low == high) return low; // stop condition
         
-        int shift = (high + 1 - low) / 2; // bit shift
+        int shift = (high + 1 - low) / 2; // half the interval
 
         // update low or high value depending on character
         if (s.charAt(sPos) == 'B' || s.charAt(sPos) == 'R') low += shift;
         else high -= shift;
         
-        // advance characters and call with updated low-high combo
+        // advance character and call with updated low-high combo
         return getSpot(s, sPos + 1, low, high);
     }
 
@@ -33,9 +32,9 @@ public class Day5 extends Day {
      * 
      * Passes in format rrrrrrccc with binary seat ID specification
      * > each r is either 'F' or 'B' indicating front or back half
-     *      of remaining range (initial is 0-127) of rows
+     *      of remaining range (initial is 0-127, 2^6) of rows
      * > each c is either 'L' or 'R' indicating front or back half
-     *      of remaining range (initial is 0-7) of columns
+     *      of remaining range (initial is 0-7, 2^3) of columns
      * > seat ID is 8 * row + column
      * 
      */
@@ -68,7 +67,7 @@ public class Day5 extends Day {
      * 
      */
     public void part2() {
-        Map<Integer, Integer> mSeats = new HashMap<>();
+        Map<Integer, Integer> mSeats = new HashMap<>(); // for easier searching than an array
         for (int[] s : seats) mSeats.put(s[2], s[2]); // map of available IDs
 
         //System.out.println(128*8 - mSeats.size()); // worrying about empty seats
