@@ -41,36 +41,33 @@ public class Day6 extends Day {
      * 
      */
     public void part2() {
-        Set<Character> choices = new HashSet<>();
-        Set<Character> thisChoices = new HashSet<>();
+        Map<Character, Integer> choices = new HashMap<>();
+        int members = 0;
         int sumChoices = 0;
-        boolean first = true;
-        for (int j = 0; j < 6; j++)
+
+        for (int i = 0; i < lines.length; i++)
         {
-            if (lines[j].equals("")) 
+            if (lines[i].equals(""))
             {
-                sumChoices += choices.size();
-                //System.out.println(choices);
+                for (char c : choices.keySet())
+                {
+                    if (choices.get(c) == members) 
+                    {
+                        sumChoices++;
+                    }     
+                }
                 choices.clear();
-                first = true;
+                members = 0;
             }
             else
             {
-                for (int i = 0; i < lines[j].length(); i++)
+                members++;
+                for (char c : lines[i].toCharArray())
                 {
-                    if (first) choices.add(lines[j].charAt(i)); // add entries for first member
-                    else thisChoices.add(lines[j].charAt(i)); // for other members
+                    if (choices.containsKey(c)) choices.put(c, choices.get(c)+1);
+                    else choices.put(c, 1);
                 }
-                if (first) thisChoices = choices;
-                first = false;
-                System.out.println("thisChoices = " + thisChoices);
             }
-            
-            //System.out.println(choices);
-            //System.out.println(thisChoices);
-            System.out.println(thisChoices.retainAll(choices));
-            System.out.println("after retainAll =" + thisChoices + choices);
-            thisChoices.clear();
         }
 
         System.out.printf("Total unique=%d\n", sumChoices);
