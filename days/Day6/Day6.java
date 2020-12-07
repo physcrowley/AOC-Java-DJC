@@ -56,9 +56,6 @@ public class Day6 extends Day {
                         sumChoices++;
                     }     
                 }
-                System.out.println(members);
-                System.out.println(choices);
-                System.out.println(sumChoices);
                 choices.clear();
                 members = 0;
             }
