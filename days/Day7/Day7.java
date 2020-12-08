@@ -4,21 +4,20 @@ import java.util.Scanner;
 
 
 /**
- * Data structure ideas.
+ * Data structure ideas :
  * Acyclic directed graph
- * HashMap K=colour, V=HashMap of contained backs (K=colour, V=quant)
+ * HashMap K=colour, V=HashMap of contained bags (K=colour, V=quant)
+ *      The colour in the value is the pointer to the next colour
  */
 public class Day7 extends Day {
     String input;
     Map<String, Map<String, Integer>> bags;
-    List<Integer> numBags;
     
     Day7() {
         inputFile = "days/Day7/input7.txt";
         input = getInput();
         bags = new HashMap<>();
-        numBags = new ArrayList<>();
-        makeASG(input, bags);
+        makeADG(input, bags);
     }
 
     /**
@@ -32,7 +31,7 @@ public class Day7 extends Day {
      * The Strings for each colour-contains rule are all of the format
      * <colour> bags contain <number> <colour> bag[s][, <number> <colour> bag[s]]{0-}.
      */
-    void makeASG(String s, Map m)
+    void makeADG(String s, Map m)
     {
         for (String line : s.split("\n"))
         {
