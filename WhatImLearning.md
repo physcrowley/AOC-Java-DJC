@@ -14,7 +14,7 @@ A logical error on file input (splitting input into String[] entries by '\n' and
 
 This taught me that using a small test input file (the examples in each problem) instead of only iterating over partial input could have helped me see the problem sooner.
 
-## Youtube -> Reducible
+### Youtube -> Reducible
 
 Just watched the Dynamic programming episode and it seems to apply directly to Day 7's first problem. Acyclical directed graphs for the relationships between bag colours.
 
