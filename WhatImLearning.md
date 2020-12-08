@@ -17,3 +17,11 @@ This taught me that using a small test input file (the examples in each problem)
 ## Youtube -> Reducible
 
 Just watched the Dynamic programming episode and it seems to apply directly to Day 7's first problem. Acyclical directed graphs for the relationships between bag colours.
+
+## Day 7
+
+Setting up the data structure was the hardest part -> parsing the text correctly into the nested HashMaps.
+
+The second hardest part was just putting down the math in code without making mistakes when considering the data structures and recursion.
+
+Using paper and pencil to sketch out and manually go through the examples was the most effective way of figuring out the algorithm.
