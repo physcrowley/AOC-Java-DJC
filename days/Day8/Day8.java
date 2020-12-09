@@ -35,7 +35,7 @@ public class Day8 extends Day {
             Scanner scanLines = new Scanner(lines[i]);
             op = scanLines.next();
             val = scanLines.nextInt();
-            instructions[i] = new HashMap<>(Map.of(op, val));
+            instructions[i] = new HashMap<String, Integer>(Map.of(op, val));
             scanLines.close();
         }
         
@@ -81,58 +81,57 @@ public class Day8 extends Day {
      */
     public void part2() {
         Deque<Integer> linesRead = new ArrayDeque<>();
-        int stackSizeOfChange = instructions.length;
-        int acc = 0;
-        int i = 0;
-        while (i < instructions.length)
+        List<Integer> negJmps = new ArrayList<>();
+        // find negative (looping) jumps
+        for (int m = 0; m < instructions.length; m++)
         {
-            if (linesRead.contains(i))
-            { 
-                while (true) 
-                {
-                    i = linesRead.pop();
-                    if (instructions[i].containsKey("acc")){
-                        acc -= instructions[i].get("acc");
-                    }
-                    else if (instructions[i].containsKey("nop"))
-                    {
-                        if (linesRead.size() <= stackSizeOfChange + 1)
-                        {
-                            int val = instructions[i].get("nop");
-                            instructions[i] = new HashMap<>(Map.of("jmp", val));
-                        }
-                        if (linesRead.size() < stackSizeOfChange + 1) break;
-                    }
-                    else if (instructions[i].containsKey("jmp"))
-                    {
-                        if (linesRead.size() <= stackSizeOfChange + 1)
-                        {
-                            int val = instructions[i].get("jmp");
-                            instructions[i] = new HashMap<>(Map.of("nop", val));
-                        }
-                        if (linesRead.size() < stackSizeOfChange + 1) break;
-                    }
-                }
-                stackSizeOfChange = i;
+            if (instructions[m].containsKey("jmp"))
+            {
+                if (instructions[m].get("jmp") <= 0) negJmps.add(m);
             }
+        }
+        System.out.println(negJmps);
+       
+        // test replacing each one with "nop" to find solution
+        int acc = 0;
+        for (int j = 0; j < negJmps.size(); j++)
+        {
+            acc = 0;
+            int jump = negJmps.get(j);
+            int val = instructions[jump].get("jmp");
+            instructions[jump] = new HashMap<String, Integer>(Map.of("nop", val));
+            if (j > 0)
+            {
+                val = instructions[negJmps.get(j - 1)].get("nop");
+                instructions[negJmps.get(j - 1)] = new HashMap<String, Integer>(Map.of("jmp", val));  
+            } 
 
-            //System.out.print((i + 1) + " ");
-            linesRead.push(i);
-            if (instructions[i].containsKey("nop")) 
+            int i = 0;
+            while (i < instructions.length)
             {
-                //System.out.println(instructions[i]);
-                i++;
-            }
-            else if (instructions[i].containsKey("acc")) 
-            {
-                //System.out.println(instructions[i]);
-                acc += instructions[i].get("acc");
-                i++;
-            }
-            else 
-            {
-                //System.out.println(instructions[i]);
-                i += instructions[i].get("jmp");
+                if (linesRead.contains(i))
+                {
+                    linesRead.clear();
+                    break;
+                }
+                //System.out.print((i + 1) + " ");
+                linesRead.push(i);
+                if (instructions[i].containsKey("nop")) 
+                {
+                    //System.out.println(instructions[i]);
+                    i++;
+                }
+                else if (instructions[i].containsKey("acc")) 
+                {
+                    //System.out.println(instructions[i]);
+                    acc += instructions[i].get("acc");
+                    i++;
+                }
+                else 
+                {
+                    //System.out.println(instructions[i]);
+                    i += instructions[i].get("jmp");
+                }
             }
         }
         //System.out.println(linesRead);
