@@ -73,8 +73,8 @@ public class Day8 extends Day {
 
 
     /**
-     * Change one jmp to nop or vice-versa to allow the program to proceed to the next line
-     * after the input and get the new acc value
+     * Change one jmp to nop or vice-versa to allow the program to proceed through past
+     * the end of the input
      * 
      * acc=8 with test input
      * 
@@ -126,7 +126,6 @@ public class Day8 extends Day {
                 }
             }  
         }
-
 
         System.out.printf("Acc=%d\n", acc);
     }
