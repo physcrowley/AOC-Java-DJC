@@ -25,3 +25,9 @@ Setting up the data structure was the hardest part -> parsing the text correctly
 The second hardest part was just putting down the math in code without making mistakes when considering the data structures and recursion.
 
 Using paper and pencil to sketch out and manually go through the examples was the most effective way of figuring out the algorithm.
+
+## Day 8
+
+This problem, part 2, was more of a logic problem -> realising only the negative jumps needed to be looked at.
+
+The rest was finding out how to test changing each jump in succession without messing up the other instructions by accident. I had a few experiments with going backwards and forwards through a stack before just giving up and iterating from the beginning with each new possible change. The stack idea would have required caching indices and the acc value for different change points... maybe another day.
