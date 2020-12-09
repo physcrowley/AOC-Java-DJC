@@ -11,6 +11,7 @@ days/Day5/Day5.java ^
 days/Day6/Day6.java ^
 days/Day7/Day7.java ^
 days/Day8/Day8.java ^
+days/Day9/Day9.java ^
 Main.java
 
 @echo on
