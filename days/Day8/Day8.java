@@ -81,7 +81,10 @@ public class Day8 extends Day {
      */
     public void part2() {
         Deque<Integer> linesRead = new ArrayDeque<>();
-        List<Integer> negJmps = new ArrayList<>();
+        //List<Integer> negJmps = new ArrayList<>();
+        List<Integer> nops = new ArrayList<>();
+        
+        /* didn't find a solution
         // find negative (looping) jumps
         for (int m = 0; m < instructions.length; m++)
         {
@@ -111,6 +114,7 @@ public class Day8 extends Day {
             {
                 if (linesRead.contains(i))
                 {
+                    System.out.println(jump);
                     linesRead.clear();
                     break;
                 }
@@ -134,6 +138,59 @@ public class Day8 extends Day {
                 }
             }
         }
+        */
+
+        // find nops <- also doesn't work
+        for (int m = 0; m < instructions.length; m++)
+        {
+            if (instructions[m].containsKey("nop")) nops.add(m);
+        }
+        System.out.println(nops);
+       
+        // test replacing each one with "jmp" to find solution
+        int acc = 0;
+        for (int j = 0; j < nops.size(); j++)
+        {
+            acc = 0;
+            int n = nops.get(j);
+            int val = instructions[n].get("nop");
+            instructions[n] = new HashMap<String, Integer>(Map.of("jmp", val));
+            if (j > 0)
+            {
+                val = instructions[nops.get(j - 1)].get("jmp");
+                instructions[nops.get(j - 1)] = new HashMap<String, Integer>(Map.of("nop", val));  
+            } 
+
+            int i = 0;
+            while (i < instructions.length)
+            {
+                if (linesRead.contains(i))
+                {
+                    System.out.println(n);
+                    linesRead.clear();
+                    break;
+                }
+                //System.out.print((i + 1) + " ");
+                linesRead.push(i);
+                if (instructions[i].containsKey("nop")) 
+                {
+                    //System.out.println(instructions[i]);
+                    i++;
+                }
+                else if (instructions[i].containsKey("acc")) 
+                {
+                    //System.out.println(instructions[i]);
+                    acc += instructions[i].get("acc");
+                    i++;
+                }
+                else 
+                {
+                    //System.out.println(instructions[i]);
+                    i += instructions[i].get("jmp");
+                }
+            }
+        }
+
         //System.out.println(linesRead);
         System.out.printf("Acc=%d\n", acc);
     }
