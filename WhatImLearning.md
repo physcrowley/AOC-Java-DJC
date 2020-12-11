@@ -30,4 +30,12 @@ Using paper and pencil to sketch out and manually go through the examples was th
 
 This problem, part 2, was more of a logic problem -> realising only the negative jumps needed to be looked at.
 
-The rest was finding out how to test changing each jump in succession without messing up the other instructions by accident. I had a few experiments with going backwards and forwards through a stack before just giving up and iterating from the beginning with each new possible change. The stack idea would have required caching indices and the acc value for different change points... maybe another day.
+The rest was finding out how to test changing each jump in succession without messing up the other instructions by accident. I had a few experiments with going backwards and forwards through a stack before just giving up and iterating from the beginning with each new possible change. The stack idea would have required caching indices and the acc value for different change points... maybe another day
+
+## Day 9
+
+I am probably too tired... I can see the relationships but can't easily translate it to code
+
+## Day 10 - switched to Python
+
+I don't want to explore data structures and homemade sorting algorithms... I need to write code faster so I am going to use Python... worked amazingly.
