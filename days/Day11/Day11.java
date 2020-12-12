@@ -37,7 +37,20 @@ public class Day11 extends Day {
     {
         boolean first = true;
         int loops = 0;
+        // linked objects, cannot change one without affecting the other
         char[][] nextSpots = spots;
+        /* // seemingly independant items -> algo doesn't converge
+        char[][] nextSpots = new char[height][width];
+        for (int i = 0; i < height; i++){
+            for (int j = 0; j < width; j++) nextSpots[i][j] = '.';
+        }
+        */
+        /* // another seemingly independant declaration -> algo also hangs
+        char[][] nextSpots = new char[height][width];
+        for (int i = 0; i < height; i++){
+            nextSpots[i] = Arrays.copyOf(spots[i], width);
+        }
+        */
 
         while (nextSpots != spots || first)
         {
@@ -45,7 +58,7 @@ public class Day11 extends Day {
             {
                 for (int i = 0; i < height; i++)
                 {
-                    for (int j = 0; j < width; j++) spots[i][j] = nextSpots[i][j];
+                    for (int j = 0; j < width; j++) spots[i][j] = nextSpots[i][j]; // assigning items, not arrays (pointers to objects)
                 }
             }
             first = false;
