@@ -4,6 +4,7 @@ input = "input10.txt"
 with open(input) as file:
     
     raw = file.read().split("\n")
+    
     nums = []
     for n in raw:
         nums.append(int(n))
