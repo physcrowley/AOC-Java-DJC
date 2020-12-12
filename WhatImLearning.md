@@ -39,3 +39,7 @@ I am probably too tired... I can see the relationships but can't easily translat
 ## Day 10 - switched to Python
 
 I don't want to explore data structures and homemade sorting algorithms... I need to write code faster so I am going to use Python... worked amazingly.
+
+## Day 11
+
+Well, python's list architecture was a killer for the cellular automata task because the assignment operator between lists links their pointers, not their current values. Same thing when initializing a list of a certain size with the []*size method -> for a nested loop, rows' pointers are linked so changing the value in one row changed it in all the rows. I had to get out the debugger to see what was happening. This one would have been faster in Java, for sure.
