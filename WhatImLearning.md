@@ -43,3 +43,5 @@ I don't want to explore data structures and homemade sorting algorithms... I nee
 ## Day 11
 
 Well, python's list architecture was a killer for the cellular automata task because the assignment operator between lists links their pointers, not their current values. Same thing when initializing a list of a certain size with the []*size method -> for a nested loop, rows' pointers are linked so changing the value in one row changed it in all the rows. I had to get out the debugger to see what was happening. This one would have been faster in Java, for sure.
+
+...well I tried it in Java with `char[][]` and the same issues cropped up, except even when both arrays were declared in independently and the arrays didn't reference themselves internally during the declaration (item-by-item assignments only), the algorithm failed like when the "next" array had referenced its own rows during declaration in python (`=[['.']*width]*height`) changing a cell in one column changed the entire column across all rows) -> the algorithm could never converge to a stable solution.
