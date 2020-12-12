@@ -1,5 +1,5 @@
 #input_file = "test-input11.txt"
-#input_file = "python/day11/test-input11.txt" #for the debugger
+#input_file = "python/day11/test-input11.txt" #for debugging from the AOC-Java-DJC workspace
 input_file = "input11.txt"
 
 """
@@ -14,21 +14,20 @@ with open(input_file) as file:
     height = len(raw)
     spots = []
     for row in raw:
-        spots.append(list(row)) # manage strings as lists
+        spots.append(list(row)) # manage strings as char lists
 
-#for r in spots: print(r)
 
 def part1(spots):
     """ 
     Find how many seats are occupied once the arrangement is stable using these
     rules :
-    1> is empty and all adjacent are empty -> becomes occupied
-    2> is occupied and 4+ are occupied -> becomes empty
+    1> is empty ('L') and all adjacent are empty -> becomes occupied
+    2> is occupied ('#') and 4+ adjacent are occupied -> becomes empty
     3> otherwise, no change
 
-    Presume floor counts as a constant empty
+    Floor ('.') counts as a constant empty
 
-    test-input11 -> stabilizes at 37 seats
+    test-input11 -> should stabilize at 37 occupied seats after 6 loops
     """
     first = True
     loops = 0
