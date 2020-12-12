@@ -1,5 +1,5 @@
 #input_file = "test-input11.txt"
-#input_file = "python/day11/test-input11.txt"
+#input_file = "python/day11/test-input11.txt" #for the debugger
 input_file = "input11.txt"
 
 """
@@ -38,11 +38,11 @@ def part1(spots):
     # changing one changes all the others that are linked
     next_spots = []
     for i in range(height):
-        next_spots.append([])
-        for j in range(width): next_spots[i].append('.')
+        next_spots.append([]) # new empty list
+        for j in range(width): next_spots[i].append('.') # item assignment, not list assignment
     
 
-    while next_spots != spots:
+    while next_spots != spots: # until stable
         if not first:
             for i in range(height):
                 for j in range(width): spots[i][j] = next_spots[i][j]
@@ -75,10 +75,10 @@ def part1(spots):
                 
                 # apply rules to seat
                 if spots[i][j] == 'L' and local_occupied == 0: next_spots[i][j] = '#'
-                elif local_occupied >= 4: next_spots[i][j] = 'L'
+                elif spots[i][j] == '#' and local_occupied >= 4: next_spots[i][j] = 'L'
                 else: next_spots[i][j] = spots[i][j]
 
-        
+    # count occupied seats
     occupied = 0
     for  r in next_spots: 
         for c in r:
