@@ -32,6 +32,10 @@ def part1(spots):
     """
     first = True
     loops = 0
+    # need to declare and fill with each element completely 
+    # independantly from other lists - including other rows
+    # because assignment links to the same object in memory and 
+    # changing one changes all the others that are linked
     next_spots = []
     for i in range(height):
         next_spots.append([])
